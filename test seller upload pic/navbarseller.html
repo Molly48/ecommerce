@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Bar</title>
+  <style>
+    
+    body, ul {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif; 
+    }
+
+    .navbar {
+      background: rgb(205, 192, 177);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      margin: 0 5px; 
+    }
+
+    .navbar ul li:last-child {
+      margin-left: auto;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: rgb(19, 18, 18);
+      padding: 5px;
+      display: block;
+    }
+
+    .navbar ul li:first-child a {
+      margin-left: 10px; 
+    }
+
+    .navbar ul li a img.icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    h1 {
+      color: rgb(0, 0, 0);
+      margin: 0;
+      flex-grow: 1;
+      text-align: center; 
+      font-family: 'sans-serif'; 
+      font-size: 28px; 
+    }
+
+    h1 a {
+      text-decoration: none;
+      color: black; 
+    }
+    /* Updated styles for sidebar */
+    .sidebar {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      width: 250px;
+      padding: 15px;
+      background-color: rgb(116, 98, 82);
+      box-sizing: border-box;
+	  z-index : 9;
+    }
+
+    #size {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 10px; /* Changed 'right' to 'left' */
+      width: 250px;
+      padding: 15px;
+      background-color: rgb(116, 98, 82);
+      box-sizing: border-box;
+    }
+
+
+    #mySearch {
+      width: 100%;
+      font-size: 18px;
+      padding: 11px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    #myMenu {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #myMenu li a {
+      padding: 12px;
+      text-decoration: none;
+      color: black;
+      display: block;
+    }
+
+    #myMenu li a:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#" onclick="toggleSize()"><img src="https://cdn0.iconfinder.com/data/icons/rounded-basics/24/rounded__menu-512.png" class="icon"></a></li>
+    </ul>
+    <h1 style="font-size: 25px; font-family : sans-serif !important; "><a href="mainpage.php">Glamfetti</a></h1>
+    <ul>
+      <li><a href="#" onclick="toggleSidebar()"><img src="https://www.freepnglogos.com/uploads/search-png/search-icon-transparent-images-vector-15.png" class="icon"></a></li>
+      <li><a href="#" onclick="toggleRegister()"><img src="https://th.bing.com/th/id/R.79adb80546626599ff7a248d3b8c3f82?rik=gCxVSJi%2bjIm6rA&riu=http%3a%2f%2fgetdrawings.com%2fimg%2fperson-silhouette-icon-2.png&ehk=V%2b3t7sLw94toFGOl%2fIhW13gTioThsZmkPu0ZuL%2b5RJ4%3d&risl=&pid=ImgRaw&r=0" class="icon" ></a></li>
+    </ul>
+  </nav>
+
+  <div class="sidebar" id="size">
+    <center>
+    <ul id="myMenu">
+      <form>
+        <li><a href="sizecalculator.php">Size Calculator</a></li>
+        <li><a href="contact.php">About Us</a></li>
+        
+
+      </form>
+    </center>
+    </div>
+  </div>
+
+  <div class="sidebar" id="register">
+    <center>
+    <ul id="myMenu">
+      <form>
+        <li><a href="enterproducts.php">Selling Product</a></li>
+        <li><a href="displayproducts.php">Manage Product</a></li>
+        <li><a href="mainpage2.php">Log Out</a></li>
+      </form>
+    </center>
+    </div>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <h2>Categories</h2>
+    <input type="text" id="mySearch" placeholder="Search.." title="Type in a category">
+    <ul id="myMenu">
+      <li><a href="#">T-shirt</a></li>
+      <li><a href="#">Dress</a></li>
+      <li><a href="#">Blouse</a></li>
+      <li><a href="#">Skirt</a></li>
+      <li><a href="#">Kids</a></li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      var sidebar = document.getElementById('sidebar');
+      var searchBox = document.getElementById('mySearch');
+      if (sidebar.style.display === 'block') {
+        sidebar.style.display = 'none';
+        searchBox.style.display = 'none';
+      } else {
+        sidebar.style.display = 'block';
+        searchBox.style.display = 'block';
+      }
+    }
+
+    function toggleRegister() {
+      var registerForm =  document.getElementById('register');
+      if (registerForm.style.display === 'block') {
+        registerForm.style.display = 'none';
+      } else {
+        registerForm.style.display = 'block';
+      }
+    }
+
+    function toggleSize() {
+      var sizeForm = document.getElementById('size');
+      if (sizeForm.style.display === 'block') {
+        sizeForm.style.display = 'none';
+      } else {
+        sizeForm.style.display = 'block';
+      }
+    }
+   
+  </script>
+</body>
+</html>
